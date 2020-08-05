@@ -35,19 +35,18 @@ namespace Presentation.API
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "ToDo API",
-                    Description = "A simple example ASP.NET Core Web API",
-                    TermsOfService = new Uri("https://example.com/terms"),
+                    Title = "Tenant Service",
+                    Description = "Tenant management service",
                     Contact = new OpenApiContact
                     {
-                        Name = "Shayne Boyer",
-                        Email = string.Empty,
-                        Url = new Uri("https://twitter.com/spboyer"),
+                        Name = "Sheepkings",
+                        Email = "thesheepkings@gmail.com",
+                        Url = new Uri("https://sheepkings.com/services/tenant")
                     },
                     License = new OpenApiLicense
                     {
-                        Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license"),
+                        Name = "MIT",
+                        Url = new Uri("https://choosealicense.com/licenses/mit/"),
                     }
                 });
             });
@@ -68,7 +67,8 @@ namespace Presentation.API
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tenant Service API V1");
+                c.RoutePrefix = string.Empty;
             });
 
             app.UseHttpsRedirection();
